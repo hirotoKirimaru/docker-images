@@ -201,7 +201,7 @@ if [ "${ftp_proxy}" != "" ]; then
 fi
 
 if [ "${no_proxy}" != "" ]; then
-  PROXY_SETTINGS="$PROXY_SETTINGS --build-arg no_proxy=${no_proxy}"
+  PROXY_SETTINGS="$PROXY_SETTINGS --build-arg no_proxy=$(echo $no_proxy | sed 's/ //g')"
 fi
 
 if [ "$PROXY_SETTINGS" != "" ]; then
